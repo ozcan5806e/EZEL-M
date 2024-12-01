@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EZELİM</title> <!-- Başlık buraya değiştirildi -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .heart-container {
+            position: relative;
+            text-align: center;
+        }
+
+        .heart {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #ff4081, #ff80ab);
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 2s ease-in-out infinite, pulse 2.5s ease-in-out infinite;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -100px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 100px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(0.9) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.15) rotate(-45deg);
+            }
+            100% {
+                transform: scale(0.9) rotate(-45deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .message {
+            position: absolute;
+            top: 140%; /* Yerin alt kısmına yerleştirildi */
+            width: 100%;
+            font-size: 36px; /* Yazı boyutu büyütüldü */
+            font-weight: bold;
+            color: #ff4081; /* Pembe renk */
+            animation: fadeIn 2.5s ease-in-out infinite, moveText 2.5s ease-in-out infinite;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4); /* Yazıya gölge ekledik */
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+        }
+
+        @keyframes moveText {
+            0% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(5px);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart-container">
+        <div class="heart"></div>
+        <div class="message">Seni Seviyorum</div>
+    </div>
+</body>
+</html>
